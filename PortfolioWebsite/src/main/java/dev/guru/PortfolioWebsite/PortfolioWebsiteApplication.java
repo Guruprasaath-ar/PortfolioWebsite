@@ -22,7 +22,7 @@ public class PortfolioWebsiteApplication {
 		aboutSection.setTitle("Developer by profession");
 
 		User profile = new User.UserBuilder("Guru Prasaath")
-								.withEmail("guruprasaathar2002@gmail.com")
+
 								.withAboutSection(aboutSection)
 								.addSkill(skill)
 								.build();

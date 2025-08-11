@@ -1,6 +1,7 @@
 package dev.guru.PortfolioWebsite.model;
 
 import jakarta.persistence.*;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,16 +16,21 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    private String profession;
     private String header;
-    private String email;
     private String cvPath;
     private String profileImgPath;
 
     @OneToOne(cascade = CascadeType.ALL)
+    private Profiles profile;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private About aboutSection;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private List<Skill> skills;
+
     @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Project> projects;
 
@@ -35,10 +41,11 @@ public class User {
 
     public User(UserBuilder builder) {
         this.name = builder.name;
+        this.profession = builder.profession;
         this.header = builder.header;
-        this.email = builder.email;
         this.cvPath = builder.cvPath;
         this.profileImgPath = builder.profileImgPath;
+        this.profile = builder.profile;
         this.aboutSection = builder.aboutSection;
         this.skills = builder.skills;
         this.projects = builder.Projects;
@@ -48,72 +55,37 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getHeader() {
         return header;
-    }
-
-    public void setHeader(String header) {
-        this.header = header;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getCvPath() {
         return cvPath;
     }
 
-    public void setCvPath(String cvPath) {
-        this.cvPath = cvPath;
-    }
-
     public String getProfileImgPath() {
         return profileImgPath;
-    }
-
-    public void setProfileImgPath(String profileImgPath) {
-        this.profileImgPath = profileImgPath;
     }
 
     public About getAboutSection() {
         return aboutSection;
     }
 
-    public void setAboutSection(About aboutSection) {
-        this.aboutSection = aboutSection;
-    }
-
     public List<Skill> getSkills() {
         return skills;
-    }
-
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
     }
 
     public List<Project> getProjects() {
         return projects;
     }
 
-    public void setProjects(List<Project> projects) {
-        this.projects = projects;
-    }
-
     public static class UserBuilder{
-        private String name;
+        private final String name;
+        private String profession;
         private String header;
-        private String email;
         private String cvPath;
         private String profileImgPath;
+        private Profiles profile;
         private About aboutSection;
         private List<Skill> skills;
         private List<Project> Projects;
@@ -128,13 +100,13 @@ public class User {
             return new User(this);
         }
 
-        public UserBuilder withHeader(String header) {
-            this.header = header;
+        public UserBuilder withProfession(String profession) {
+            this.profession = profession;
             return this;
         }
 
-        public UserBuilder withEmail(String email) {
-            this.email = email;
+        public UserBuilder withHeader(String header) {
+            this.header = header;
             return this;
         }
 
@@ -160,6 +132,11 @@ public class User {
 
         public UserBuilder withAboutSection(About aboutSection) {
             this.aboutSection = aboutSection;
+            return this;
+        }
+
+        public UserBuilder withProfiles(Profiles profiles) {
+            this.profile = profiles;
             return this;
         }
 

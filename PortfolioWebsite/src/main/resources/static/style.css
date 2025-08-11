@@ -167,6 +167,7 @@ button { font-family: inherit; cursor: pointer; }
 .hero__greet { font-weight: 700;
     line-height: 1.3;
 }
+
 .hero__greet span {
     background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary), var(--clr-accent));
     background-size: 200%;
@@ -182,20 +183,61 @@ button { font-family: inherit; cursor: pointer; }
     max-width: 60ch;
 
 }
-.btns { display: flex;
+.btns {
+    display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
-.hero__profileImg { justify-self: center;
+.hero__profileImg {
+    justify-self: center;
     position: relative;
     width: 100%;
     aspect-ratio: 3/4;
-    background: linear-gradient(135deg, rgba(120,81,169,.3), rgba(0,212,255,.3));
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
     border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,.4);
+    box-shadow: 0 20px 40px var(--shadow-primary);
 }
-.hero__profileImg img { width: 100%;
+.hero__profileImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    transition: transform var(--timing-fast);
+}
+.hero__profileImg:hover img {
+    transform: scale(1.03);
+}
+.hero__profiles {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero__tag {
+    color: var(--clr-text-muted);
+    font-weight: 600;
+}
+.hero__introduction p {
+    max-width: 60ch;
+
+}
+.btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.hero__profileImg {
+    justify-self: center;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-secondary));
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px var(--shadow-primary);
+}
+.hero__profileImg img {
+    width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: var(--radius-lg);
@@ -222,6 +264,7 @@ button { font-family: inherit; cursor: pointer; }
     color: var(--clr-text-light);
     transition: var(--timing-bounce);
 }
+
 .btn__profile::before {
     content: '';
     position: absolute;
@@ -231,6 +274,19 @@ button { font-family: inherit; cursor: pointer; }
     border-radius: inherit;
     transition: opacity var(--timing-fast);
 }
+
+.btn__Github::before{
+    background: linear-gradient(135deg, #0d1117, #161b22, #6f42c1);
+}
+
+.btn__LinkedIn::before{
+    background: linear-gradient(135deg, #0A66C2, #004182);
+}
+
+.btn__Email::before{
+    background: linear-gradient(135deg, #EA4335, #C5221F);
+}
+
 .btn__profile:hover {
     transform: translateY(-4px);
     border-color: transparent;
@@ -671,7 +727,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* Animations */
-@keyframes gradientShift { 0%{background-position: 0 50%} 50%{background-position:100% 50%} 100%{background-position: 0% 50%} }
+@keyframes gradientShift { 0%{background-position: 0 50%} 50%{background-position:100% 50%} 100%{background-position:  50%} }
 
 /* Media Queries (mobile-first) */
 @media (max-width: 992px) {
