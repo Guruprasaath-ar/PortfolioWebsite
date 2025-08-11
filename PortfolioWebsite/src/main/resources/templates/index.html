@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guruprasaath - Software Developer and Game Developer specializing in Java, Spring Boot, and Unreal Engine">
+    <title>Guruprasaath - Software & Game Developer</title>
+
+    <!-- Preconnect to Google Fonts for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Enhanced CSS -->
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- Loading Animation -->
+<div id="loader" class="loader">
+    <div class="loader-content">
+        <div class="loader-logo">GP</div>
+        <div class="loader-text">Loading Portfolio...</div>
+    </div>
+</div>
+
+<!-- Floating Background Shapes -->
+<div class="floating-bg" aria-hidden="true">
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+    <div class="floating-shape"></div>
+</div>
+
+<!-- Enhanced Navigation -->
+<nav class="Nav" id="navbar">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+        <i class="fas fa-bars" id="menu-icon"></i>
+    </button>
+    <div class="NavGrid" id="nav-grid">
+        <a href="#hero" class="nav-link active" data-section="hero">Home</a>
+        <a href="#about" class="nav-link" data-section="about">About</a>
+        <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+        <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        <div class="Nav__highlight" id="nav-highlight"></div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero" class="hero section">
+    <div class="hero__container">
+        <div class="hero__stats__container">
+            <h1 class="hero__greet">
+                Hello, I'm <span class="hero__name">Guruprasaath</span>
+            </h1>
+            <h2 class="hero__tag">Software & Game Developer</h2>
+            <div class="hero__introduction">
+                <p>Engineer and problem-solver,I specialize in building robust, scalable systems that deliver both speed and reliability — because great software should feel effortless.</p>
+            </div>
+            <div class="btns">
+                <a href="/cv/resume.pdf" class="btn btn-primary">Download CV</a>
+                <a href="#contact" class="btn btn-secondary">Let's Connect</a>
+            </div>
+            <div class="hero__profiles">
+                <a href="https://github.com/Guruprasaath-ar" class="btn__profile" data-tooltip="GitHub" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.comhttps://www.linkedin.com/in/guruprasaathar/" class="btn__profile" data-tooltip="LinkedIn" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:guruprasaathar2002@gmail.com" class="btn__profile" data-tooltip="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hero__profileImg">
+            <img src="/images/ProfileImg.jpg" alt="Guruprasaath Profile" loading="eager">
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about section">
+    <div class="section-header">
+        <h2>About Me</h2>
+        <p class="section-tag">Passionate developer with expertise in multiple technologies</p>
+    </div>
+    <div class="about__container">
+        <div class="about__info">
+            <div class="about__description">
+                <h3>Who Am I?</h3>
+                <p>I'm a software developer with expertise in Java, Spring Boot, and building scalable backend systems. Alongside this, I have professional experience as a game developer, working with Unreal Engine and C++ to create immersive gameplay systems.</p>
+                <p>Outside of work, I'm a football enthusiast, a curious learner, and someone who enjoys turning challenges into opportunities. Whether it's coding, playing on the field, or learning something new, I'm driven by passion and the joy of improvement.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">1+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+            </div>
+        </div>
+        <div class="skills-container">
+            <h3>Technical Skills</h3>
+            <div class="thumbnail">
+                <div class="skill" data-skill="Tailwind CSS">
+                    <img src="https://img.icons8.com/color/48/tailwind_css.png" alt="tailwind_css"/>
+                    <span>Tailwind CSS</span>
+                </div>
+                <div class="skill" data-skill="JavaScript">
+                    <img src="https://img.icons8.com/color/48/javascript.png" alt="javascript"/>
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill" data-skill="C++">
+                    <img src="https://img.icons8.com/color/48/c-plus-plus-logo.png" alt="c-plus-plus-logo"/>
+                    <span>C++</span>
+                </div>
+                <div class="skill" data-skill="Java">
+                    <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="java-coffee-cup-logo"/>
+                    <span>Java</span>
+                </div>
+                <div class="skill" data-skill="Spring Boot">
+                    <img src="https://img.icons8.com/officel/50/spring-logo.png" alt="spring-logo"/>
+                    <span>Spring Boot</span>
+                </div>
+                <div class="skill" data-skill="PostgreSQL">
+                    <img src="https://img.icons8.com/color/48/postgreesql.png" alt="postgreesql"/>
+                    <span>PostgreSQL</span>
+                </div>
+                <div class="skill" data-skill="Git">
+                    <img src="https://img.icons8.com/color/48/git.png" alt="git"/>
+                    <span>Git</span>
+                </div>
+                <div class="skill" data-skill="Unreal Engine">
+                    <img src="https://img.icons8.com/nolan/50/unreal-engine.png" alt="unreal-engine"/>
+                    <span>Unreal Engine</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="experience section">
+    <div class="section-header">
+        <h2>Experience & Education</h2>
+        <p class="section-tag">My professional journey and educational background</p>
+    </div>
+    <div class="timeline">
+        <div class="timeline-item left" data-aos="fade-up">
+            <div class="timeline-icon timeline-icon-1">
+                <i class="fas fa-gamepad"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-date">2023 - March 2025</div>
+                <h3 class="timeline-title">Game Developer</h3>
+                <h4 class="timeline-subtitle">Ex Nytwolf Games</h4>
+                <p class="timeline-description">Professional experience in game development using Unreal Engine and C++. Worked on gameplay systems, AI, UI, and optimization, applying software design patterns and performance best practices. Collaborated in a multidisciplinary team to deliver engaging player experiences.</p>
+            </div>
+        </div>
+        <div class="timeline-item right" data-aos="fade-up" data-aos-delay="200">
+            <div class="timeline-icon timeline-icon-2">
+                <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="timeline-content">
+                <div class="timeline-date">2019 - 2023</div>
+                <h3 class="timeline-title">B.Tech ECE</h3>
+                <h4 class="timeline-subtitle">NIT Puducherry</h4>
+                <p class="timeline-description">Comprehensive undergraduate program in Electronics & Communication Engineering. Studied DSA, OS, and Computer Networks, alongside hands-on projects and teamwork. Graduated with strong academic performance.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact section">
+    <div class="section-header">
+        <h2>Get In Touch</h2>
+        <p class="section-tag">Have something exciting in mind? Let's turn it into reality.</p>
+    </div>
+    <div class="contact__container">
+        <div class="contact__info">
+            <div class="contact__channel" data-aos="fade-right">
+                <a href = "mailto:guruprasaathar2002@gmail.com" target="_blank">
+                <i class="fas fa-envelope contact-icon"></i>
+                <div>
+                    <p>guruprasaathar2002@gmail.com</p>
+                </div>
+                </a>
+            </div>
+            <div class="contact__channel" data-aos="fade-right" data-aos-delay="100">
+                <a href="https://www.linkedin.com/in/guruprasaathar/" target="_blank">
+                <i class="fab fa-linkedin-in contact-icon"></i>
+                <div>
+                    <p>Connect with me professionally</p>
+                </div>
+                </a>
+            </div>
+            <div class="contact__channel" data-aos="fade-right" data-aos-delay="200">
+                <a href="https://github.com/Guruprasaath-ar" target="_blank">
+                <i class="fab fa-github contact-icon"></i>
+                <div>
+                    <p>Check out my code</p>
+                </div>
+                </a>
+            </div>
+        </div>
+        <form class="contact__form" data-aos="fade-left" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="7d262770-faa2-4c46-969d-0404223abb0b" />
+            <div class="contact__form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="input-field" required>
+            </div>
+            <div class="contact__form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" class="input-field" required>
+            </div>
+            <div class="contact__form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" class="input-field" required>
+            </div>
+            <div class="contact__form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" class="input-field" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary contact__send-btn">
+                <span>Send Message</span>
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-about">
+            <div class="footer-name">Guruprasaath</div>
+            <p class="footer-desc">Passionate software and game developer dedicated to creating innovative solutions and engaging experiences.</p>
+        </div>
+        <div class="footer-links">
+            <div class="footer-column">
+                <h4 class="footer-title">Quick Links</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Connect</h4>
+                <ul>
+                    <li><a href="https://github.com/Guruprasaath-ar" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a href="https://www.linkedin.com/in/guruprasaathar/" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a href="mailto:guruprasaathar2002@gmail.com">Email</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Guruprasaath. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Back to Top Button -->
+<button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Enhanced JavaScript -->
+<script src="/script.js"></script>
+</body>
+</html>
