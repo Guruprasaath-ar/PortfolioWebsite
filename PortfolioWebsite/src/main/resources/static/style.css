@@ -675,23 +675,108 @@ button { font-family: inherit; cursor: pointer; }
 
 /* Media Queries (mobile-first) */
 @media (max-width: 992px) {
-    .hero__container { grid-template-columns: 1fr; text-align: center; }
-    .about__container, .contact__container { grid-template-columns: 1fr; }
-    .timeline::before { left: 24px; }
-    .timeline-content { margin-left: 48px; text-align: left; }
-    .timeline-icon { left: 0; right: auto; }
+    .hero__container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .about__container, .contact__container {
+        grid-template-columns: 1fr;
+    }
+    .timeline::before {
+        left: 30px;
+        transform: none;
+    }
+
+    /* Make all items full width */
+    .timeline-item {
+        width: 100%;
+        left: 0 !important; /* Override left/right positions */
+        text-align: left;
+        padding: 2rem 2rem 2rem 70px; /* Space for the icon & line */
+    }
+
+    /* Icons on the line */
+    .timeline-icon {
+        left: 30px;
+        right: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Dates above content instead of centered on line */
+    .timeline-date {
+        position: relative;
+        left: 0;
+        transform: none;
+        margin-bottom: 0.5rem;
+        display: inline-block;
+    }
+
+    /* Ensure alternating classes don't affect layout */
+    .timeline-item.left,
+    .timeline-item.right {
+        left: 0;
+    }
+    .timeline-content {
+        margin-left: 48px;
+        text-align: center;
+    }
+    .timeline-icon {
+        left: 2rem;
+    }
 }
 @media (max-width: 768px) {
-    .Nav { left: auto; right: 1rem; transform: none; padding: .6rem .8rem; }
-    .menu-toggle { display: block; }
-    .NavGrid { position: fixed; top: 4rem; right: 1rem; flex-direction: column; background: rgba(26, 27, 46, .95); padding: 2rem; border-radius: var(--radius-md); max-height: 0; overflow: hidden; transition: max-height var(--timing-fast) ease; width: 220px; backdrop-filter: blur(10px); }
-    .NavGrid.open { max-height: 500px; }
-    .Nav__highlight { display: none; }
+    .Nav {
+        left: auto;
+        right: 1rem;
+        transform: none;
+        padding: .6rem .8rem;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .NavGrid {
+        position: fixed;
+        top: 4rem;
+        right: 1rem;
+        flex-direction: column;
+        background: rgba(26, 27, 46, .95);
+        padding: 2rem;
+        border-radius: var(--radius-md);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--timing-fast) ease;
+        width: 220px;
+        backdrop-filter: blur(10px);
+    }
+    .NavGrid.open {
+        max-height: 500px;
+    }
+    .Nav__highlight {
+        display: none;
+    }
 }
 @media (max-width: 576px) {
-    .hero__profileImg { aspect-ratio: 3/4; width: 80%; margin-inline: auto; }
-    .btns { flex-direction: column; }
-    .thumbnail { grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); }
+    .NavGrid {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .NavGrid.open {
+        visibility: visible;
+        opacity: 1;
+    }
+    .hero__profileImg {
+        aspect-ratio: 3/4;
+        width: 80%;
+        margin-inline: auto;
+    }
+    .btns {
+        flex-direction: column;
+    }
+
+    .thumbnail {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
 }
 
 /* Reduced Motion */
