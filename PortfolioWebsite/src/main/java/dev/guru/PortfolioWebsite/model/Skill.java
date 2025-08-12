@@ -24,10 +24,6 @@ public class Skill {
         return ImgPath;
     }
 
-    public void setImgPath(String imgPath) {
-        ImgPath = imgPath;
-    }
-
     public long getId() {
         return id;
     }
@@ -36,8 +32,26 @@ public class Skill {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Skill(SkillBuilder builder) {
+        this.name = builder.name;
+        this.ImgPath = builder.ImgPath;
     }
 
+    public static class SkillBuilder {
+        private final String name;
+        private String ImgPath;
+
+        public SkillBuilder (String name) {
+            this.name = name;
+        }
+
+        public SkillBuilder withImg(String path) {
+            this.ImgPath = path;
+            return this;
+        }
+
+        public Skill build() {
+            return new Skill(this);
+        }
+    }
 }

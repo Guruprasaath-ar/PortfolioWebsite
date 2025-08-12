@@ -20,23 +20,51 @@ public class Profiles {
         return LinkedIn;
     }
 
-    public void setLinkedIn(String linkedIn) {
-        LinkedIn = linkedIn;
-    }
 
     public String getGithub() {
         return Github;
-    }
-
-    public void setGithub(String github) {
-        Github = github;
     }
 
     public String getEmailId() {
         return emailId;
     }
 
-    public void setEmailId(String emailId) {
-        this.emailId = emailId;
+    public Profiles() {
+
+    }
+
+    public Profiles(ProfilesBuilder builder){
+        this.LinkedIn = builder.LinkedIn;
+        this.Github = builder.Github;
+        this.emailId = builder.emailId;
+    }
+
+    public static class ProfilesBuilder{
+        private String LinkedIn;
+        private String Github;
+        private String emailId;
+
+        public ProfilesBuilder(){
+
+        }
+
+        public ProfilesBuilder withLinkedIn(String linkedIn){
+            this.LinkedIn = linkedIn;
+            return this;
+        }
+
+        public ProfilesBuilder withGithub(String github){
+            this.Github = github;
+            return this;
+        }
+
+        public ProfilesBuilder withEmailId(String emailId){
+            this.emailId = emailId;
+            return this;
+        }
+
+        public Profiles build(){
+            return new Profiles(this);
+        }
     }
 }

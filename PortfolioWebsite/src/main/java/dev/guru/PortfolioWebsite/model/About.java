@@ -27,31 +27,53 @@ public class About {
         return title;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getHeaderDescription() {
         return headerDescription;
-    }
-
-    public void setHeaderDescription(String headerDescription) {
-        this.headerDescription = headerDescription;
     }
 
     public String getBodyDescription() {
         return bodyDescription;
     }
 
-    public void setBodyDescription(String bodyDescription) {
-        this.bodyDescription = bodyDescription;
-    }
-
     public String getFooterDescription() {
         return footerDescription;
     }
 
-    public void setFooterDescription(String footerDescription) {
-        this.footerDescription = footerDescription;
+    public About(AboutBuilder builder){
+        this.title = builder.title;
+        this.headerDescription = builder.headerDescription;
+        this.bodyDescription = builder.bodyDescription;
+        this.footerDescription = builder.footerDescription;
     }
+
+    public static class AboutBuilder{
+        private final String title;
+        private String headerDescription;
+        private String bodyDescription;
+        private String footerDescription;
+
+        public AboutBuilder(String title){
+            this.title = title;
+        }
+
+        public AboutBuilder withHeaderDescription(String headerDescription){
+            this.headerDescription = headerDescription;
+            return this;
+        }
+
+        public AboutBuilder withBodyDescription(String bodyDescription){
+            this.bodyDescription = bodyDescription;
+            return this;
+        }
+
+        public AboutBuilder withFooterDescription(String footerDescription){
+            this.footerDescription = footerDescription;
+            return this;
+        }
+
+        public About build(){
+            return new About(this);
+        }
+    }
+
 }
