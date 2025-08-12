@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,30 +45,30 @@
     <div class="hero__container">
         <div class="hero__stats__container">
             <h1 class="hero__greet">
-                Hello world, I'm <span class="hero__name">Guruprasaath</span>
+                Hello world, I'm <span class="hero__name" th:text="${user.getName()}"></span>
             </h1>
-            <h2 class="hero__tag">Software Developer</h2>
+            <h2 class="hero__tag" th:text="${user.getProfession()}"></h2>
             <div class="hero__introduction">
-                <p>Engineer and problem-solver, I specialize in building robust, scalable systems that deliver both speed and reliability, because great software should feel effortless.</p>
+                <p th:text="${user.getHeader()}"></p>
             </div>
             <div class="btns">
-                <a href="/cv/resume.pdf" class="btn btn-primary">Download CV</a>
+                <a th:href="${user.getCvPath()}" class="btn btn-primary">Download CV</a>
                 <a href="#contact" class="btn btn-primary">Let's Connect</a>
             </div>
             <div class="hero__profiles">
-                <a href="https://github.com/Guruprasaath-ar" class="btn__profile btn__Github" data-tooltip="GitHub" target="_blank" rel="noopener">
+                <a th:href="${user.getProfile().getGithub()}" class="btn__profile btn__Github" data-tooltip="GitHub" target="_blank" rel="noopener">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="https://linkedin.comhttps://www.linkedin.com/in/guruprasaathar/" class="btn__profile btn__LinkedIn" data-tooltip="LinkedIn" target="_blank" rel="noopener">
+                <a th:href="${user.getProfile().getLinkedIn()}" class="btn__profile btn__LinkedIn" data-tooltip="LinkedIn" target="_blank" rel="noopener">
                     <i class="fab fa-linkedin-in"></i>
                 </a>
-                <a href="mailto:guruprasaathar2002@gmail.com" class="btn__profile btn__Email" data-tooltip="Email">
+                <a th:href="|mailto:${user.getProfile().getEmailId()}|" class="btn__profile btn__Email" data-tooltip="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
         </div>
         <div class="hero__profileImg">
-            <img src="/images/ProfileImg.jpg" alt="Guruprasaath Profile" loading="eager">
+            <img th:src="${user.getProfileImgPath()}" alt="Guruprasaath Profile" loading="eager">
         </div>
     </div>
 </section>
@@ -77,14 +77,14 @@
 <section id="about" class="about section">
     <div class="section-header">
         <h2>About Me</h2>
-        <p class="section-tag">Passionate developer with expertise in multiple technologies</p>
+        <p class="section-tag" th:text="${user.getAboutSection().getTitle()}"></p>
     </div>
     <div class="about__container">
         <div class="about__info">
             <div class="about__description">
                 <h3>Who Am I?</h3>
-                <p>I'm a software developer with expertise in Java, Spring Boot, and building scalable backend systems. Alongside this, I have professional experience as a game developer, working with Unreal Engine and C++ to create immersive gameplay systems.</p>
-                <p>Outside of work, I'm a football enthusiast, a curious learner, and someone who enjoys turning challenges into opportunities. Whether it's coding, playing on the field, or learning something new, I'm driven by passion and the joy of improvement.</p>
+                <p th:text="${user.getAboutSection().getHeaderDescription()}"></p>
+                <p th:text="${user.getAboutSection().getBodyDescription()}"></p>
             </div>
             <div class="stats-grid">
                 <div class="stat-item">
@@ -100,37 +100,15 @@
         <div class="skills-container">
             <h3>Technical Skills</h3>
             <div class="thumbnail">
-                <div class="skill" data-skill="Tailwind CSS">
-                    <img src="https://img.icons8.com/color/48/tailwind_css.png" alt="tailwind_css"/>
-                    <span>Tailwind CSS</span>
-                </div>
-                <div class="skill" data-skill="JavaScript">
-                    <img src="https://img.icons8.com/color/48/javascript.png" alt="javascript"/>
-                    <span>JavaScript</span>
-                </div>
-                <div class="skill" data-skill="C++">
-                    <img src="https://img.icons8.com/color/48/c-plus-plus-logo.png" alt="c-plus-plus-logo"/>
-                    <span>C++</span>
-                </div>
-                <div class="skill" data-skill="Java">
-                    <img src="https://img.icons8.com/color/48/java-coffee-cup-logo.png" alt="java-coffee-cup-logo"/>
-                    <span>Java</span>
-                </div>
-                <div class="skill" data-skill="Spring Boot">
-                    <img src="https://img.icons8.com/officel/50/spring-logo.png" alt="spring-logo"/>
-                    <span>Spring Boot</span>
-                </div>
-                <div class="skill" data-skill="PostgreSQL">
-                    <img src="https://img.icons8.com/color/48/postgreesql.png" alt="postgreesql"/>
-                    <span>PostgreSQL</span>
-                </div>
-                <div class="skill" data-skill="Git">
-                    <img src="https://img.icons8.com/color/48/git.png" alt="git"/>
-                    <span>Git</span>
-                </div>
-                <div class="skill" data-skill="Unreal Engine">
-                    <img src="https://img.icons8.com/nolan/50/unreal-engine.png" alt="unreal-engine"/>
-                    <span>Unreal Engine</span>
+                <div class="skill"
+                     th:each="skill : ${user.getSkills()}"
+                     th:attr="data-skill=${skill.getName()}">
+
+                    <!-- Dynamic image -->
+                    <img th:src="${skill.getImgPath()}" th:alt="${skill.getName()}" />
+
+                    <!-- Skill name -->
+                    <span th:text="${skill.getName()}"></span>
                 </div>
             </div>
         </div>
@@ -178,15 +156,15 @@
     <div class="contact__container">
         <div class="contact__info">
             <div class="contact__channel" data-aos="fade-right">
-                <a href = "mailto:guruprasaathar2002@gmail.com" target="_blank">
+                <a th:href="|mailto:${user.getProfile().getEmailId()}|" target="_blank">
                 <i class="fas fa-envelope contact-icon"></i>
                 <div>
-                    <p>guruprasaathar2002@gmail.com</p>
+                    <p th:text="${user.getProfile().getEmailId()}"></p>
                 </div>
                 </a>
             </div>
             <div class="contact__channel" data-aos="fade-right" data-aos-delay="100">
-                <a href="https://www.linkedin.com/in/guruprasaathar/" target="_blank">
+                <a th:href="${user.getProfile().getLinkedIn()}" target="_blank">
                 <i class="fab fa-linkedin-in contact-icon"></i>
                 <div>
                     <p>Connect with me professionally</p>
@@ -194,7 +172,7 @@
                 </a>
             </div>
             <div class="contact__channel" data-aos="fade-right" data-aos-delay="200">
-                <a href="https://github.com/Guruprasaath-ar" target="_blank">
+                <a th:href="${user.getProfile().getGithub()}" target="_blank">
                 <i class="fab fa-github contact-icon"></i>
                 <div>
                     <p>Check out my code</p>
@@ -232,7 +210,7 @@
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-about">
-            <div class="footer-name">Guruprasaath</div>
+            <div class="footer-name" th:text="${user.getName()}"></div>
             <p class="footer-desc">Passionate software and game developer dedicated to creating innovative solutions and engaging experiences.</p>
         </div>
         <div class="footer-links">
@@ -248,9 +226,9 @@
             <div class="footer-column">
                 <h4 class="footer-title">Connect</h4>
                 <ul>
-                    <li><a href="https://github.com/Guruprasaath-ar" target="_blank" rel="noopener">GitHub</a></li>
-                    <li><a href="https://www.linkedin.com/in/guruprasaathar/" target="_blank" rel="noopener">LinkedIn</a></li>
-                    <li><a href="mailto:guruprasaathar2002@gmail.com">Email</a></li>
+                    <li><a th:href="${user.getProfile().getGithub()}" target="_blank" rel="noopener">GitHub</a></li>
+                    <li><a th:href="${user.getProfile().getLinkedIn()}" target="_blank" rel="noopener">LinkedIn</a></li>
+                    <li><a th:href="|mailto:${user.getProfile().getEmailId()}|">Email</a></li>
                 </ul>
             </div>
         </div>

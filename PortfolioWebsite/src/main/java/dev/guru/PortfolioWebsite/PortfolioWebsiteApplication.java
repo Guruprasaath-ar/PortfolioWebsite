@@ -61,12 +61,11 @@ public class PortfolioWebsiteApplication {
 //										.withBodyDescription("Outside of work, I'm a football enthusiast, a curious learner, " +
 //												"and someone who enjoys turning challenges into opportunities. " +
 //												"Whether it's coding, playing on the field, or learning something new, " +
-//												"I'm driven by passion and the joy of improvement.")
+//											"I'm driven by passion and the joy of improvement.")
 //										.build();
-//
 //		/* profiles */
 //		Profiles profiles = new Profiles.ProfilesBuilder()
-//										.withLinkedIn("https://linkedin.comhttps://www.linkedin.com/in/guruprasaathar/")
+//										.withLinkedIn("https://www.linkedin.com/in/guruprasaathar/")
 //										.withGithub("https://github.com/Guruprasaath-ar")
 //										.withEmailId("guruprasaathar2002@gmail.com")
 //										.build();
@@ -82,8 +81,8 @@ public class PortfolioWebsiteApplication {
 //		skills.add(ue);
 //
 //		/* user */
-//		User profile = new User.UserBuilder("Guru Prasaath")
-//								.withProfession("Software Developer")
+//		User profile = new User.UserBuilder("Guruprasaath")
+//							.withProfession("Software Developer")
 //								.withHeader("Engineer and problem-solver, " +
 //										"I specialize in building robust, " +
 //										"scalable systems that deliver both speed and reliability, " +
@@ -100,5 +99,4 @@ public class PortfolioWebsiteApplication {
 //		UserRepo userRepo = context.getBean(dev.guru.PortfolioWebsite.repository.UserRepo.class);
 //		userRepo.save(profile);
 	}
-
 }

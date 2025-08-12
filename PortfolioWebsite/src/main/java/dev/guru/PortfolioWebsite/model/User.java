@@ -14,12 +14,16 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private String name;
     private String profession;
     private String header;
     private String cvPath;
     private String profileImgPath;
+
+    public Profiles getProfile() {
+        return profile;
+    }
 
     @OneToOne(cascade = CascadeType.ALL)
     private Profiles profile;
@@ -54,6 +58,8 @@ public class User {
     public String getName() {
         return name;
     }
+
+    public String getProfession() {return profession;}
 
     public String getHeader() {
         return header;
