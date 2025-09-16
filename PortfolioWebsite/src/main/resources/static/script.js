@@ -76,27 +76,38 @@ const observer = new IntersectionObserver((entries) => {
     });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector(".contact__form");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const form = document.querySelector(".contact__form");
+//
+//     form.addEventListener("submit", function (event) {
+//         event.preventDefault();
+//
+//         const formData = new FormData(form);
+//         formData.append("access_key", "7d262770-faa2-4c46-969d-0404223abb0b");
+//
+//         // Remove the redirect field - handle it in JavaScript instead
+//         // formData.append("redirect", "https://web3forms.com/success"); // Don't add this
+//
+//         fetch("https://api.web3forms.com/submit", {
+//             method: "POST",
+//             body: formData // Don't set Content-Type header - let browser handle it
+//         })
+//             .then(async (response) => {
+//                 let json = await response.json();
+//
+//                 if (response.ok) {
+//                     alert("✅ Message sent successfully!");
+//                     form.reset();
+//                     // Handle redirect here instead of using redirect input
+//                     // window.location.href = "success.html"; // Uncomment if you want to redirect
+//                 } else {
+//                     alert("❌ Error: " + json.message);
+//                 }
+//             })
+//             .catch((error) => {
+//                 console.error("Error:", error);
+//                 alert("⚠ Network error. Please try again.");
+//             });
+//     });
+// });
 
-    form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Stop default form submission for now
-
-        // Optionally: submit via fetch to preserve behavior
-        fetch(form.action, {
-            method: form.method,
-            body: new FormData(form),
-        })
-            .then(response => {
-                if (response.ok) {
-                    alert("Message sent successfully!");
-                    form.reset(); // Clear the form fields
-                } else {
-                    alert("Something went wrong. Please try again.");
-                }
-            })
-            .catch(() => {
-                alert("Network error. Please try again.");
-            });
-    });
-});
